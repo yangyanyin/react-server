@@ -9,19 +9,18 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    - name: Checkout code
-      uses: actions/checkout@v4
+    steps:
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: npm install
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Build project
-      run: npm run build
+      - name: Install dependencies
+        run: npm install
 
-    - name: Start Node
-      run: npm run preview
+      - name: Build project
+        run: npm run build

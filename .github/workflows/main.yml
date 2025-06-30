@@ -16,8 +16,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install dependencies AND build
         run: npm install
-
-      - name: Build project
         run: npm run build
+
+      - name: Build Docker image
+        run: |
+          docker build -t github-actions-react .
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: 'yangyanyin'
+          password: 'yang1187756010'
+
+
+        

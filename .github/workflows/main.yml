@@ -31,8 +31,10 @@ jobs:
           username: 'yangyanyin'
           password: 'yang1187756010'
 
-      - name: Push Docker image
+      - name: Tag Docker image
         run: |
           docker tag github-actions-docker-react:latest yangyanyin/github-actions-docker-react:latest
-          docker push yangyanying/github-actions-docker-react:latest
 
+      - name: Push Docker image
+        run: |
+          docker push yangyanyin/github-actions-docker-react:latest

@@ -44,11 +44,12 @@ jobs:
         with:
           host: '192.168.45.11'
           username: 'root'
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          key: ${{ secrets.SERVER_SSH_KEYC }}
           script: |
             docker pull yangyanyin/github-actions-docker-react:latest
 
             docker stop react-server || true
+            
             docker rm react-server || true
-
+            
             docker run -d -p 5174:5174 --name react-server yangyanyin/github-actions-docker-react:latest

@@ -39,20 +39,16 @@ jobs:
         run: |
           docker push yangyanyin/github-actions-docker-react:latest
 
-       # SSH into remote server and pull the Docker image
       - name: SSH into server and deploy Docker container
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: '192.168.45.11'          # 服务器 IP 地址
-          username: 'root'  # 服务器 SSH 用户名
-          key: ${{ secrets.SERVER_SSH_KEY }}         # 服务器的 SSH 密钥
+          host: '192.168.45.11'
+          username: 'root'
+          key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            # 拉取 Docker 镜像
             docker pull yangyanyin/github-actions-docker-react:latest
 
-            # 停止并删除旧的容器（如果有）
             docker stop react-server || true
             docker rm react-server || true
 
-            # 运行新的容器
             docker run -d -p 5174:5174 --name react-server yangyanyin/github-actions-docker-react:latest

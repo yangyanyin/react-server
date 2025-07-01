@@ -42,7 +42,7 @@ jobs:
       - name: SSH into server and deploy Docker container
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: '192.168.44.1'
+          host: '192.168.47.255'
           username: 'root'
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |

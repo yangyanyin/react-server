@@ -44,7 +44,7 @@ jobs:
         with:
           host: '192.168.45.11'
           username: 'root'
-          key: ${{ secrets.SERVER_SSH_KEYC }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             docker pull yangyanyin/github-actions-docker-react:latest
 
